@@ -1,2 +1,2 @@
 # Personal
-Books, exercise
+Books, exercise, dotfile and etc.
