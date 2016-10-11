@@ -1,0 +1,16 @@
+(define (factorial n)
+  (if (= n 1)
+    n
+    (* n (factorial (- n 1)))
+    )
+  )
+
+(factorial 11000)
+
+(define (fib n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+        (else (+ (fib (- n 1))
+                 (fib (- n 2))))))
+
+(fib 6)
