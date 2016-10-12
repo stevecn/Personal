@@ -53,5 +53,24 @@
   (lambda (f) (lambda (x) (f ((n f) x)))))
 
 (define one (lambda(f) (lambda (x) (f x))))
+(define two (lambda(f) (lambda (x) (f (f x)))))
+(define three (lambda(f) (lambda (x) (f (f (f x))))))
 
-(= one (add-1 zero))
+(define (add a b)
+  (lambda (f)
+    (lambda (x)
+      ((a f) ((b f) x)))))
+
+;; Excellent answer for add a b, actually it's the
+;; same compared with above imp.
+(define (add a b)
+  ((a add-1) b))
+
+(zero 1)
+
+(define (square x) (* x x))
+
+((two square) 2)
+((three square) 2)
+
+(((add two one) square) 2)
