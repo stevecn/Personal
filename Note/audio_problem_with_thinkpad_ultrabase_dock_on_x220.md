@@ -1,0 +1,1 @@
+alsactl init solve it
