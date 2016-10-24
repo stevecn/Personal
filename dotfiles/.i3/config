@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod4
+set $alt Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -149,6 +150,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        mode hide
+        hidden_state hide
+        modifier Mod1
 }
 
 
@@ -156,11 +160,24 @@ bar {
 # Start fcitx when start i3wm
 exec --no-startup-id fcitx
 
-exec xrandr --output VGA1 --auto
-exec xrandr --output LVDS1 --off
+bindsym $mod+p exec xrandr --output VGA1 --auto && xrandr --output LVDS1 --off
+
 #exec --no-startup-id wicd-gtk
 
 hide_edge_borders both
 
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
+
+
+# $mod + o to launch program.
+bindsym $mod+o mode "$mode_launcher"
+
+mode "$mode_launcher" {
+    bindsym f exec firefox
+    bindsym p exec ~/Code/PhpStorm/bin/phpstorm.sh
+    bindsym v exec gvim
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
