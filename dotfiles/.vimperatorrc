@@ -1,8 +1,14 @@
 set gui=nonavigation
 let mapleader = ","
 
-map d <C-d>
-map e <C-u>
-map <S-j> <C-p>
-map <S-k> <c-n>
+noremap d <C-d>
+noremap e <C-u>
+noremap <S-j> <C-p>
+noremap <S-k> <c-n>
 noremap x d
+noremap <BS> <C-o>
+
+noremap <leader>f <F12>
+
+noremap <leader>nn :set gui=nonavigation<CR>
+noremap <leader>n :set gui=navigation<CR>
