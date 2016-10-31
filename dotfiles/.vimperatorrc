@@ -1,5 +1,12 @@
+colorscheme simple-highlight
+
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
 set gui=nonavigation
 let mapleader = ","
+set runtimepath+=~/.vimperator/vimperator-plugins
+
+" Ctrl-a
+inoremap <C-a> <C-Home><C-S-End>
 
 noremap d <C-d>
 noremap e <C-u>

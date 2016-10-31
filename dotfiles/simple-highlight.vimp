@@ -1,0 +1,15 @@
+" ==Vimperator_Color_Scheme==
+" name: Simple Highlight
+" modifications: Travis Jeffery <t.jeffery@utoronto.ca>
+" modifications: Steve Lee <me@xiangyangli.com>
+" - only set the hint no background;
+" ==Simple_Highlight_Color_Scheme==
+
+highlight Bell display: none;
+
+
+" highlight WarningMsg
+highlight Hint font-family: "DejaVu Sans Mono", monospace; font-size: 12px; font-weight: normal; color: #FFO099; background-color: #3399FF; padding: 0px 2px;
+highlight HintElem background-color: #00CC000;
+" highlight HintActive
+
