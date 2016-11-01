@@ -139,3 +139,50 @@ one-through-four
 (define (squares items)
   (map (lambda (x) (* x x)) items))
 (squares (list 1 2 3 4))
+
+;; Exercise2.22
+(define (square x) (* x x))
+(define (square-list items)
+  (define (iter things answer)
+    (if (null? things)
+      answer
+      (iter (cdr things)
+            (cons (square (car things))
+                  answer))))
+  (iter items nil))
+;; Modify one
+(define (square-list items)
+  (define (iter things answer)
+    (if (null? things)
+      answer
+      (iter (cdr things)
+            (cons answer
+                  (square 
+                    (car things))))))
+  (iter items nil))
+(square-list (list 1 2 3 4 5))
+(list 1 4 9 16 25)
+;; The right one;
+(cons 1 (cons 4 (cons 9 (cons 16 (cons 25 nil)))))
+;; The wrong one
+(cons (cons (cons (cons (cons nil 1) 4) 9) 16) 25)
+
+;; Exercise2.23
+;; why nil print '()
+(define (for-each proc items)
+  (define (iter proc items item)
+    (if (null? item)
+      nil
+      (proc item))
+    (if (null? items)
+      nil
+      (iter proc (cdr items) (car items))))
+  (iter proc items nil))
+
+(for-each
+  (lambda (x) (newline) (display x))
+  (list 57 321 88))
+
+(cons (list 1 2) (list 3 4))
+
+
