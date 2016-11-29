@@ -85,3 +85,49 @@
 (deep-reverse (list 3 4))
 (deep-reverse (list 1 2 3))
 (reverse (list 1 2 3))
+
+;; Exercise2.28
+
+(define (fringe items)
+  (if (not (pair? items))
+    (list items)
+    (append (fringe (car items))
+            (if (null? (cdr items))
+              nil
+              (fringe (cdr items))))))
+
+
+(append (list 3) (list 4))
+(append (list 4) nil)
+(append nil (list 4))
+(list 4)
+(list 3 4)
+(list nil)
+(append (list nil) (list nil))
+
+(define x
+  (list (list 1 2) (list 3 4)))
+(fringe x)
+(fringe (list x x))
+(list 1 2 3 4)
+(list 1 2 3 4 1 2 3 4)
+
+(append (list 2) (list 3))
+(list 2 3)
+(list (list 1 2) (list 3 4))
+(list (list 1 2) 3 4)
+
+;; Exercise2.29
+
+(define (make-mobile left right)
+  (list left right))
+
+(define (make-branch length structure)
+  (list length structure))
+
+(define (left-branch mobile)
+  (car (mobile)))
+(define (right-branch mobile)
+  (cdr (mobile)))
+
+(define branch-length)
