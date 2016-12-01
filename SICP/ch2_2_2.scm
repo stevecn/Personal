@@ -28,6 +28,7 @@
 (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr (list 1 (list 2 (list 3 (list 4 (list 5 (list 6 7))))))))))))))))))
 
 ;; Exercise 2.26
+(define z (list 1 1 1))
 (define x (list 1 2 3))
 (define y (list 4 5 6))
 
