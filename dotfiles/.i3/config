@@ -27,7 +27,8 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal --hide-menubar --hide-tabbar
+#bindsym $mod+Return exec konsole --enable-transparency
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -40,34 +41,34 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Up split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Right split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -88,6 +89,7 @@ bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -149,6 +151,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        status_command /home/stevelee/.i3/i3script.sh
         status_command i3status
         mode hide
         hidden_state hide
@@ -159,8 +162,18 @@ bar {
 # Personal config
 # Start fcitx when start i3wm
 exec --no-startup-id fcitx
+exec --no-startup-id xsetroot -solid "#333333"
+exec --no-startup-id xcape -e 'Control_L=Escape'
+exec --no-startup-id xcape -e "Shift_L=parenleft;Shift_R=parenright"
 
-bindsym $mod+p exec xrandr --output VGA1 --auto && xrandr --output LVDS1 --off
+exec --no-startup-id xcompmgr -c -f -n
+# exec --no-startup-id feh --bg-center /home/stevelee/Pictures/background/evil-corp-qhd-1280x1024.jpg
+
+bindsym $mod+p exec xrandr --output VGA1 --auto && xrandr --output LVDS1 --off && feh --bg-center /home/stevelee/Pictures/background/evil-corp-qhd-1280x1024.jpg
+bindsym $mod+i exec xrandr --output LVDS1 --auto && xrandr --output VGA1 --off
+bindsym $mod+u exec xrandr --output VGA1 --auto --right-of LVDS1 && feh --bg-center /home/stevelee/Pictures/background/evil-corp-qhd-1280x1024.jpg
+bindsym $mod+Shift+u exec xrandr --output VGA1 --auto --left-of LVDS1 && feh --bg-center /home/stevelee/Pictures/background/evil-corp-qhd-1280x1024.jpg
+
 
 #exec --no-startup-id wicd-gtk
 
@@ -169,15 +182,24 @@ hide_edge_borders both
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
 
-
 # $mod + o to launch program.
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym f exec firefox
+    bindsym b exec chromium
     bindsym p exec ~/Code/PhpStorm/bin/phpstorm.sh
+    bindsym c exec ~/Tools/pycharm-2016.3/bin/pycharm.sh
     bindsym v exec gvim
+    bindsym m exec netease-cloud-music
+    bindsym w exec ~/software/electronic-wechat-linux-x64/electronic-wechat
+    bindsym x exec ~/Tools/xmind/XMind_amd64/XMind
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
+
+# volume key bilding
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
