@@ -26,7 +26,8 @@ noremap e <C-u>
 
 " Jump to tab
 noremap <S-k> <C-p>
-noremap <S-j> gt "Jump to next or by the tab number
+"Jump to next or by the tab number
+noremap <S-j> gt
 
 " Colse the current tab
 noremap x d
