@@ -24,9 +24,9 @@ inoremap <C-a> <C-Home><C-S-End>
 noremap d <C-d>
 noremap e <C-u>
 
-" Jump to related tab
+" Jump to tab
 noremap <S-k> <C-p>
-noremap <S-j> <c-n>
+noremap <S-j> gt "Jump to next or by the tab number
 
 " Colse the current tab
 noremap x d
@@ -34,9 +34,6 @@ noremap <BS> <C-o>
 
 " Open debug
 noremap <leader>f <F12>
-
-" Map q to jump to tab by tab number(With tree tab plugin)
-noremap q gt
 
 " Sometimes when you need navigation bar
 noremap <leader>nn :set gui=nonavigation<CR>
