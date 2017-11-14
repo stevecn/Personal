@@ -1,21 +1,43 @@
+" Color scheme
 colorscheme simple-highlight
 
+" Set hintchars to alphbet
 set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+" No navigation
 set gui=nonavigation
-let mapleader = ","
-set runtimepath+=~/.vimperator/vimperator-plugins
+
+" Leader key
+let mapleader = ";"
+
+" Disable fucking bell
+set visualbell=true
+" set runtimepath+=~/.vimperator/vimperator-plugins
+
+" Make Firefox run faster by using JIT
+" set! javascript.options.jit.chrome=true
 
 " Ctrl-a
 inoremap <C-a> <C-Home><C-S-End>
 
+" scroll down/up half page
 noremap d <C-d>
 noremap e <C-u>
-noremap <S-j> <C-p>
-noremap <S-k> <c-n>
+
+" Jump to related tab
+noremap <S-k> <C-p>
+noremap <S-j> <c-n>
+
+" Colse the current tab
 noremap x d
 noremap <BS> <C-o>
 
+" Open debug
 noremap <leader>f <F12>
 
+" Map e to jump to tab by tab number(With tree tab plugin)
+noremap e gt
+
+" Sometimes when you need navigation bar
 noremap <leader>nn :set gui=nonavigation<CR>
 noremap <leader>n :set gui=navigation<CR>
