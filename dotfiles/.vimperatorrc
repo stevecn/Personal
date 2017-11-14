@@ -35,8 +35,8 @@ noremap <BS> <C-o>
 " Open debug
 noremap <leader>f <F12>
 
-" Map e to jump to tab by tab number(With tree tab plugin)
-noremap e gt
+" Map q to jump to tab by tab number(With tree tab plugin)
+noremap q gt
 
 " Sometimes when you need navigation bar
 noremap <leader>nn :set gui=nonavigation<CR>
