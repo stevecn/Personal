@@ -1,0 +1,26 @@
+import requests as r
+
+s = r.Session();
+
+h = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36 Edg/80.0.361.69',
+     'Origin': 'https://pt.m-team.cc',
+     'Referer': 'https://pt.m-team.cc/login.php'
+     };
+     
+d = {'username': 'username',
+     'password': 'pass'};
+
+p = dict(http='socks5://@127.0.0.1:1080', https='socks5://@127.0.0.1:1080');
+
+resp = s.post('https://pt.m-team.cc/takelogin.php', data=d, headers=h, proxies=p);
+
+resp = s.get('https://pt.m-team.cc/index.php', headers=h, proxies=p);
+    
+#print(resp.status_code);    
+
+#print(resp.text);
+
+if resp.text.find('waterfall.php') != -1:
+  print('login success');
+else:
+  print('login failed');
